@@ -488,8 +488,8 @@ void MainWindow::createDoc(QPrinter *printer)
 	int fontid = QFontDatabase::addApplicationFont(":/ttf/ttf/larabie.ttf");
 	int width = QApplication::desktop()->logicalDpiX() * printer->pageRect(QPrinter::Inch).width();
 	int height = QApplication::desktop()->logicalDpiY() * printer->pageRect(QPrinter::Inch).height() - 100;		// fixme: subtract real header height
-	int tablecount = printer->pageLayout().orientation() == QPageLayout::Landscape ? TABLES : TABLES - 1;		// fixme: calculate based on paper format
-	int tablerows = printer->pageLayout().orientation() == QPageLayout::Landscape ? TABLE_ROWS : TABLE_ROWS + 11;
+	int tablecount = TABLES - 1;		// fixme: calculate based on paper format
+	int tablerows = TABLE_ROWS + 11;
 
 	pdlg = cfg.psd ? new QProgressDialog(tr("Diagram"), tr("Cancel"), 0, 1, this, Qt::Tool) : new QProgressDialog(tr("Diagram %1/2").arg(1), tr("Cancel"), 0, 2, this, Qt::Tool);
 	pdlg->setWindowTitle(tr("Creating Document"));
@@ -1063,7 +1063,7 @@ void MainWindow::exportDataToPDF(QString filename)
 	printer->setOutputFormat(QPrinter::PdfFormat);
 	printer->setPaperSize(QPrinter::A4);
 	printer->setPageSize(QPrinter::A4);
-	printer->setPageOrientation(QPageLayout::Landscape);
+	//printer->setPageOrientation(QPageLayout::Landscape);
 //	printer->setFullPage(true);
 
 	createDoc(printer);

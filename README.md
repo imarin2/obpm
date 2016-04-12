@@ -1,3 +1,15 @@
+# ** This is not an official release, only a quick fix to support Ubuntu Trusty qt 5.2 **/
+
+This is not the official repo. I have only slightly modified the source so that it compiles against QT 5.2, that is the current version in Ubuntu Trusty, which is the LTS. If your distribution includes the required version of QT, you do not need this.
+
+I have not extensibly tested the modifications, it may be buggy when dealing with printer landscape layout, but it compiles and runs under Ubuntu Trusty.
+
+In Ubuntu Trusty you will probably need, I did:
+sudo apt-get install libudev-dev
+sudo apt-get install qttools5-dev
+
+Thanks Thomas for this piece of software. You should get funded by Omron themselves.
+
 # **Omron Blood Pressure Manager**
 
 ## Description
